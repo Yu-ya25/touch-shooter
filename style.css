@@ -1,0 +1,6 @@
+html,body{margin:0;padding:0;background:#000;overflow:hidden;touch-action:none;}
+#gameCanvas{display:block;background:#111;}
+#ui{position:absolute;top:0;left:0;width:100%;pointer-events:none;color:#fff;font-family:sans-serif;}
+#score{padding:10px;font-size:20px;}
+#message{position:absolute;top:40%;width:100%;text-align:center;font-size:32px;}
+.hidden{display:none;}
