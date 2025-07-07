@@ -77,10 +77,10 @@ function update(dt, now) {
   if (now - lastBullet > 200)  { shoot();       lastBullet = now; }
   if (now - lastEnemy  > 1000) { spawnEnemy();  lastEnemy  = now; }
 
-  bullets.forEach(b => (b.y -= 400 *2 dt));
+  bullets.forEach(b => (b.y -= 400 * dt));
   bullets = bullets.filter(b => b.y + b.h > 0);
 
-  enemies.forEach(e => (e.y += 100 *3 dt));
+  enemies.forEach(e => (e.y += 100 * dt));
   enemies = enemies.filter(e => e.y - e.h < canvas.height);
 
   enemies.forEach((e, ei) => {
