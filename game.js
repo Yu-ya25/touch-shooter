@@ -74,11 +74,12 @@ function loop(now) {
 requestAnimationFrame(loop);
 
 function update(dt, now) {
+  const enemySpeed = 100 + score * 3;
   if (now - lastBullet > 200)  { shoot();       lastBullet = now; }
   if (now - lastEnemy  > 1000) { spawnEnemy();  lastEnemy  = now; }
 
   bullets.forEach(b => (b.y -= 400 * dt));
-  bullets = bullets.filter(b => b.y + b.h > 0);
+  enemies.forEach(e => (e.y += enemySpeed * dt));
 
   enemies.forEach(e => (e.y += 100 * dt));
   enemies = enemies.filter(e => e.y - e.h < canvas.height);
