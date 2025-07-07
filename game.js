@@ -74,7 +74,7 @@ function loop(now) {
 requestAnimationFrame(loop);
 
 function update(dt, now) {
-  const enemySpeed = 100 + score * 5;
+  const enemySpeed = 100 + score * 3.5;
   if (now - lastBullet > 200)  { shoot();       lastBullet = now; }
   if (now - lastEnemy  > 1000) { spawnEnemy();  lastEnemy  = now; }
 
