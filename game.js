@@ -1,3 +1,20 @@
+window.addEventListener('load', () => {
+  /* ---------- ここから元のコード ---------- */
+  const player = { x: 0, y: 0, w: 40, h: 40 };
+
+  const canvas = document.getElementById('gameCanvas');
+  const ctx    = canvas.getContext('2d');
+
+  function resize () {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    if (player) player.y = canvas.height - 60;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  player.x = canvas.width / 2;
+
 /* ---------- ① 先にプレイヤーを宣言 ---------- */
 const player = { x: 0, y: 0, w: 40, h: 40 };   // x, y は後で設定
 
