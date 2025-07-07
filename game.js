@@ -83,6 +83,13 @@ function update(dt, now) {
 
   
   enemies = enemies.filter(e => e.y - e.h < canvas.height);
+  enemies.forEach(e => {
+  if (e.y > canvas.height) {
+    score--;
+    scoreEl.textContent = score;
+  }
+});
+
 
   enemies.forEach((e, ei) => {
     bullets.forEach((b, bi) => {
