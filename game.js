@@ -81,7 +81,7 @@ function update(dt, now) {
   bullets.forEach(b => (b.y -= 400 * dt));
   enemies.forEach(e => (e.y += enemySpeed * dt));
 
-  enemies.forEach(e => (e.y += 100 * dt));
+  
   enemies = enemies.filter(e => e.y - e.h < canvas.height);
 
   enemies.forEach((e, ei) => {
