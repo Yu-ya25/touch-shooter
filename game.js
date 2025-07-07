@@ -44,7 +44,7 @@ function shoot() {
 function spawnEnemy() {
   const size = 30 + Math.random() * 20;
   const x    = Math.random() * (canvas.width - size);
-  enemies.push({ x, y: -size, w: size, h: size });
+  enemies.push({ x: x, y: -size, w: size, h: size });
 }
 function rectHit(a, b) {
   return (
@@ -90,14 +90,15 @@ function update(dt, now) {
   bullets.forEach(b => (b.y -= 400 * dt));
   enemies.forEach(e => (e.y += enemySpeed * dt));
 
-  
   enemies = enemies.filter(e => {
   if (e.y > canvas.height) {
-    if (score > 0) score--; // スコアが0未満にならないように
+    if (score > 0) score--;
     scoreEl.textContent = score;
-    return false; // 敵を削除
-  return true; // 画面内なので残す
+    return false;          // 敵を削除
+  }
+  return true;             // 画面内なので残す
 });
+
 
 
 
