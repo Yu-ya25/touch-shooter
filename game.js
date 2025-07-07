@@ -103,8 +103,11 @@ function update(dt, now) {
       }
     });
     if (rectHit(e, player)) {
-      gameOver = true;
-      messageEl.classList.remove('hidden');
+  gameOver = true;
+  messageEl.classList.remove('hidden');
+  document.getElementById('finalScore').textContent = `SCORE: ${score}`;
+}
+
     }
   });
 }
