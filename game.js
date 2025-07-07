@@ -76,16 +76,20 @@ requestAnimationFrame(loop);
 
 function update(dt, now) {
   const enemySpeed = 100 + score * 3.5;
-  if (now - lastBullet > 200)  { shoot();       lastBullet = now; }
-   if (now - lastEnemy > enemyInterval) {
-   spawnEnemy();
-   lastEnemy = now;
+  if (now - lastBullet > 200)  { shoot(); lastBullet = now; }
+  if (now - lastEnemy > enemyInterval) {
+    spawnEnemy();
+    lastEnemy = now;
+    if (enemyInterval > 300) {
+      enemyInterval -= 5;
+    }
+  }
 
-   // ★ 出現間隔を少しずつ短くする
-   if (enemyInterval > 300) {          // 下限 300ms（速すぎ防止）
-     enemyInterval -= 5;              // 1体出現ごとに5ms短縮
-}
- }
+  bullets.forEach(...);
+  enemies.forEach(...);
+  ...
+} // ← ← 最後にこれだけ残る
+
 
   bullets.forEach(b => (b.y -= 400 * dt));
   enemies.forEach(e => (e.y += enemySpeed * dt));
