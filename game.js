@@ -74,7 +74,7 @@ function loop(now) {
 requestAnimationFrame(loop);
 
 function update(dt, now) {
-  const enemySpeed = 100 + score * 3;
+  const enemySpeed = 100 + score * 5;
   if (now - lastBullet > 200)  { shoot();       lastBullet = now; }
   if (now - lastEnemy  > 1000) { spawnEnemy();  lastEnemy  = now; }
 
@@ -82,13 +82,15 @@ function update(dt, now) {
   enemies.forEach(e => (e.y += enemySpeed * dt));
 
   
-  enemies = enemies.filter(e => e.y - e.h < canvas.height);
-  enemies.forEach(e => {
+  enemies = enemies.filter(e => {
   if (e.y > canvas.height) {
-    score--;
+    if (score > 0) score--; // スコアが0未満にならないように
     scoreEl.textContent = score;
+    return false; // 敵を削除
   }
+  return true; // 画面内なので残す
 });
+
 
 
   enemies.forEach((e, ei) => {
