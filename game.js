@@ -21,7 +21,6 @@ let bullets = [];
 let enemies = [];
 let lastBullet = 0;
 let lastEnemy  = 0;
-let lastEnemy  = 0;
 let enemyInterval = 1000;          // ← 最初は 1000ms (=1秒)
 let score      = 0;
 let gameOver   = false;
@@ -97,7 +96,6 @@ function update(dt, now) {
     if (score > 0) score--; // スコアが0未満にならないように
     scoreEl.textContent = score;
     return false; // 敵を削除
-  }
   return true; // 画面内なので残す
 });
 
